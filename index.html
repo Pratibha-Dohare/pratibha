@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Pratibha Dohare - M.Tech CSE (Data Science and Engineering), machine learning and deep learning portfolio." />
+  <title>Pratibha Dohare | ML & Data Science</title>
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --surface: #ffffff;
+      --surface-soft: #eef4ff;
+      --text: #172033;
+      --muted: #667085;
+      --line: #dce4ef;
+      --brand: #2457d6;
+      --brand-dark: #173b95;
+      --accent: #0d9488;
+      --shadow: 0 16px 40px rgba(26, 45, 84, 0.10);
+      --radius: 18px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(220, 228, 239, .85);
+      backdrop-filter: blur(14px);
+      background: rgba(247, 249, 252, .88);
+    }
+    nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      font-weight: 800;
+      text-decoration: none;
+      letter-spacing: -.02em;
+      white-space: nowrap;
+    }
+    .brand span { color: var(--brand); }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #3e4c66;
+      font-size: .93rem;
+      font-weight: 650;
+    }
+    .nav-links a:hover { color: var(--brand); }
+
+    .container {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      min-height: 74vh;
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 68px;
+      align-items: center;
+      padding: 76px 0 66px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: var(--brand-dark);
+      font-weight: 750;
+      font-size: .86rem;
+      letter-spacing: .02em;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    h1 {
+      margin: 20px 0 14px;
+      font-size: clamp(2.8rem, 7vw, 5.4rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+    }
+    .hero h1 span { color: var(--brand); }
+    .hero-sub {
+      max-width: 760px;
+      margin: 0;
+      color: #44506a;
+      font-size: clamp(1.05rem, 2vw, 1.22rem);
+    }
+    .hero-meta {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 11px;
+      padding: 11px 17px;
+      text-decoration: none;
+      font-weight: 750;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(32, 64, 130, .12); }
+    .btn.primary { background: var(--brand); border-color: var(--brand); color: #fff; }
+    .btn.ghost:hover { border-color: #a9b9d8; }
+
+    .portrait-shell {
+      position: relative;
+      max-width: 330px;
+      justify-self: end;
+    }
+    .portrait-shell::before {
+      content: "";
+      position: absolute;
+      inset: 22px -22px -22px 22px;
+      background: linear-gradient(145deg, #dfe9ff, #d8f1ee);
+      border-radius: 28px;
+      z-index: -1;
+    }
+    .portrait {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border-radius: 26px;
+      border: 8px solid #fff;
+      box-shadow: var(--shadow);
+    }
+
+    section { padding: 72px 0; scroll-margin-top: 78px; }
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 36px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+    .kicker {
+      margin: 0 0 8px;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      color: var(--brand);
+      font-weight: 800;
+      font-size: .78rem;
+    }
+    h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.12;
+      letter-spacing: -.035em;
+    }
+    .section-intro {
+      margin: 0;
+      color: var(--muted);
+      max-width: 700px;
+      justify-self: end;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 7px 24px rgba(39, 58, 96, .055);
+    }
+
+    .about-card {
+      display: grid;
+      grid-template-columns: 1.7fr .8fr;
+      gap: 26px;
+      padding: 30px;
+    }
+    .about-card p { margin: 0; color: #42506a; font-size: 1.04rem; }
+    .contact-mini {
+      display: grid;
+      gap: 9px;
+      align-content: start;
+      font-size: .95rem;
+    }
+    .contact-mini a { color: var(--brand-dark); text-decoration: none; overflow-wrap: anywhere; }
+    .contact-mini a:hover { text-decoration: underline; }
+
+    .timeline { display: grid; gap: 18px; }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 24px;
+      padding: 24px 26px;
+      position: relative;
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 24px;
+      bottom: 24px;
+      width: 4px;
+      border-radius: 999px;
+      background: var(--brand);
+    }
+    .dates { font-weight: 800; color: var(--brand-dark); }
+    .timeline-item h3, .project-card h3 { margin: 0 0 4px; font-size: 1.2rem; }
+    .role-org { margin: 0 0 12px; color: var(--muted); font-style: italic; }
+    .timeline-item ul, .project-card ul { margin: 10px 0 0; padding-left: 19px; color: #45516a; }
+    .timeline-item li + li, .project-card li + li { margin-top: 5px; }
+
+    .edu-grid, .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .edu-card { padding: 24px; }
+    .edu-card .year { color: var(--brand); font-weight: 800; font-size: .9rem; }
+    .edu-card h3 { margin: 6px 0 5px; font-size: 1.2rem; }
+    .edu-card p { margin: 0; color: var(--muted); }
+    .score { margin-top: 12px; font-weight: 800; color: #25334e; }
+
+    .project-card { padding: 26px; }
+    .project-tag {
+      display: inline-block;
+      color: var(--accent);
+      font-weight: 800;
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 10px;
+    }
+
+    .skills-layout {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .skill-group { padding: 24px; }
+    .skill-group h3 { margin: 0 0 14px; font-size: 1rem; color: #263550; }
+    .chips { display: flex; flex-wrap: wrap; gap: 9px; }
+    .chip {
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: #f2f6fb;
+      border: 1px solid #e0e7f0;
+      color: #3e4c66;
+      font-size: .89rem;
+      font-weight: 650;
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .cert { padding: 24px; }
+    .cert h3 { margin: 0 0 6px; font-size: 1.08rem; }
+    .cert p { margin: 0; color: var(--muted); }
+
+    .footer {
+      margin-top: 34px;
+      padding: 34px 0 44px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .92rem;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .socials { display: flex; flex-wrap: wrap; gap: 16px; }
+    .socials a { color: var(--brand-dark); text-decoration: none; font-weight: 700; }
+
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; gap: 42px; padding-top: 56px; }
+      .portrait-shell { justify-self: start; max-width: 280px; }
+      .section-head { grid-template-columns: 1fr; gap: 12px; }
+      .section-intro { justify-self: start; }
+      .about-card { grid-template-columns: 1fr; }
+      .timeline-item { grid-template-columns: 1fr; gap: 8px; }
+      .edu-grid, .projects-grid, .skills-layout { grid-template-columns: 1fr; }
+      .cert-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 540px) {
+      .container { width: min(100% - 32px, var(--max)); }
+      nav { padding-inline: 16px; }
+      h1 { font-size: 3rem; }
+      section { padding: 54px 0; }
+      .about-card, .timeline-item, .edu-card, .project-card, .skill-group, .cert { padding: 20px; }
+      .hero-actions .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <nav aria-label="Main navigation">
+      <a class="brand" href="#top">Pratibha<span>.</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#certifications">Certifications</a>
+      </div>
+    </nav>
+  </div>
+
+  <main id="top">
+    <div class="container">
+      <header class="hero">
+        <div>
+          <span class="eyebrow">Machine Learning · Data Science · Software</span>
+          <h1>Hi, I’m <span>Pratibha Dohare.</span></h1>
+          <p class="hero-sub">M.Tech CSE (Data Science and Engineering) student at NIT Jalandhar with experience in machine learning, deep learning, information retrieval, and applied software development.</p>
+          <div class="hero-meta">
+            <span>📍 Gwalior, India</span>
+            <span>🎓 M.Tech CSE, NIT Jalandhar</span>
+            <span>📄 First-author research publication</span>
+          </div>
+          <div class="hero-actions">
+            <a class="btn primary" href="mailto:pratibhadohare01@gmail.com">Email me</a>
+            <a class="btn ghost" href="https://github.com/Pratibha-Dohare" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn ghost" href="resume.pdf" download>Download Resume</a>
+          </div>
+        </div>
+        <div class="portrait-shell">
+          <img class="portrait" src="profile.jpeg" alt="Portrait of Pratibha Dohare" />
+        </div>
+      </header>
+
+      <section id="about">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Profile</p>
+            <h2>About me</h2>
+          </div>
+          <p class="section-intro">I enjoy building practical ML systems—from preprocessing and feature engineering to model evaluation and application integration.</p>
+        </div>
+        <div class="about-card card">
+          <p>M.Tech CSE (Data Science and Engineering) student at NIT Jalandhar with 1+ year of experience in machine learning, deep learning, and applied software development. Strong foundation in Python, C++, ML/DL, model evaluation, databases, and information retrieval. Experienced in building Python-based ML applications, developing search systems, designing ML pipelines, and conducting end-to-end research from data preprocessing to model evaluation.</p>
+          <div class="contact-mini">
+            <strong>Contact</strong>
+            <a href="mailto:pratibhadohare01@gmail.com">pratibhadohare01@gmail.com</a>
+            <a href="tel:+918529745382">+91 8529745382</a>
+            <a href="https://linkedin.com/in/pratibha160702" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://leetcode.com/u/pratibha16/" target="_blank" rel="noreferrer">LeetCode</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Work</p>
+            <h2>Experience</h2>
+          </div>
+          <p class="section-intro">Research and engineering experience spanning deep learning pipelines, model integration, data handling, and application development.</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item card">
+            <div class="dates">Aug 2022 – Aug 2023</div>
+            <div>
+              <h3>Research Intern – Machine Learning & Deep Learning</h3>
+              <p class="role-org">CPS Lab, Institute of Informatics and Communications, New Delhi</p>
+              <ul>
+                <li>Developed a deep learning pipeline for cardiac murmur detection from phonocardiogram signals, including signal denoising, feature extraction, spectrogram generation, model training, and evaluation.</li>
+                <li>Applied transfer learning architectures to extract meaningful representations from spectrograms for automated classification of cardiac signals.</li>
+                <li>Performed end-to-end experimental research covering preprocessing, feature engineering, model design, training, validation, and performance analysis.</li>
+                <li>Published the research as first author in a peer-reviewed journal. <a href="https://www.tandfonline.com/doi/full/10.1080/10255842.2025.2592824" target="_blank" rel="noreferrer">View publication</a>.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item card">
+            <div class="dates">May 2022 – Aug 2022</div>
+            <div>
+              <h3>Machine Learning Engineer</h3>
+              <p class="role-org">Rising India, Bangalore</p>
+              <ul>
+                <li>Developed a Python and Streamlit-based application for multiple disease prediction and nutrition management.</li>
+                <li>Integrated pretrained machine learning models into a production-oriented application pipeline and implemented industry-specific requirements.</li>
+                <li>Worked across model integration, data handling, application development, and deployment-oriented implementation.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="education">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Academic background</p>
+            <h2>Education</h2>
+          </div>
+          <p class="section-intro">My academic path combines computer science, data science, information technology, and mathematical innovation.</p>
+        </div>
+        <div class="edu-grid">
+          <article class="edu-card card">
+            <div class="year">2025 – 2027</div>
+            <h3>National Institute of Technology, Jalandhar</h3>
+            <p>M.Tech CSE – Data Science and Engineering</p>
+            <div class="score">CGPA: 9.09</div>
+          </article>
+          <article class="edu-card card">
+            <div class="year">2019 – 2023</div>
+            <h3>Cluster Innovation Centre, University of Delhi</h3>
+            <p>B.Tech – IT & Mathematical Innovations</p>
+            <div class="score">CGPA: 9.14</div>
+          </article>
+          <article class="edu-card card">
+            <div class="year">2019</div>
+            <h3>Board of Secondary Education</h3>
+            <p>Class XII – Mathematics</p>
+            <div class="score">91%</div>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Selected work</p>
+            <h2>Projects</h2>
+          </div>
+          <p class="section-intro">Projects focused on information retrieval and machine learning classification.</p>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card card">
+            <span class="project-tag">Information Retrieval</span>
+            <h3>Search Engine</h3>
+            <ul>
+              <li>Designed and implemented a scalable document search engine using inverted indexing and TF–IDF ranking for efficient multi-keyword information retrieval.</li>
+              <li>Optimized query processing using hash-based indexing and priority queues for fast retrieval across large document collections.</li>
+              <li>Implemented document indexing, query processing, relevance-based ranking, and information retrieval.</li>
+            </ul>
+          </article>
+          <article class="project-card card">
+            <span class="project-tag">Machine Learning</span>
+            <h3>Fake Review Detection</h3>
+            <ul>
+              <li>Built a machine learning system to identify potentially fake product reviews using engineered textual and behavioral features.</li>
+              <li>Trained and evaluated supervised models while addressing class imbalance and optimizing precision–recall trade-offs.</li>
+              <li>Used F1-score and classification performance analysis to evaluate model effectiveness.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Toolkit</p>
+            <h2>Technical skills</h2>
+          </div>
+          <p class="section-intro">A mix of programming, machine learning, data engineering, web development, databases, and visualization.</p>
+        </div>
+        <div class="skills-layout">
+          <article class="skill-group card">
+            <h3>Programming</h3>
+            <div class="chips"><span class="chip">Python</span><span class="chip">C++</span><span class="chip">R</span></div>
+          </article>
+          <article class="skill-group card">
+            <h3>Machine Learning</h3>
+            <div class="chips"><span class="chip">Machine Learning</span><span class="chip">Deep Learning</span><span class="chip">Transfer Learning</span><span class="chip">Feature Engineering</span><span class="chip">Model Training</span><span class="chip">Model Evaluation</span><span class="chip">Classification</span></div>
+          </article>
+          <article class="skill-group card">
+            <h3>AI / Data Engineering</h3>
+            <div class="chips"><span class="chip">Information Retrieval</span><span class="chip">TF–IDF</span><span class="chip">Inverted Indexing</span><span class="chip">Data Processing</span><span class="chip">Database Design</span></div>
+          </article>
+          <article class="skill-group card">
+            <h3>Web / Databases</h3>
+            <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">Streamlit</span></div>
+          </article>
+          <article class="skill-group card">
+            <h3>Visualization</h3>
+            <div class="chips"><span class="chip">Tableau</span><span class="chip">Power BI</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="certifications">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Learning</p>
+            <h2>Certifications</h2>
+          </div>
+          <p class="section-intro">Selected certifications listed in my resume.</p>
+        </div>
+        <div class="cert-grid">
+          <article class="cert card"><h3>Web Development</h3><p>Internshala</p></article>
+          <article class="cert card"><h3>Machine Learning</h3><p>Udemy</p></article>
+          <article class="cert card"><h3>Data Science</h3><p>College Finder</p></article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Pratibha Dohare</div>
+      <div class="socials">
+        <a href="https://linkedin.com/in/pratibha160702" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://github.com/Pratibha-Dohare" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://leetcode.com/u/pratibha16/" target="_blank" rel="noreferrer">LeetCode</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
